@@ -1,0 +1,12 @@
+metric,value
+α=0 accuracy,32.67%
+α=1 accuracy,42.00%
+α=2 accuracy,60.00%
+α=1 improvement,+9.33 pp
+α=2 improvement,+27.33 pp
+α=0 → α=1 McNemar p,0.004344
+α=0 → α=2 McNemar p,0.000000
+Apparent α=2 corrections,42
+Genuine epistemic improvements,15
+Problematic corrections,2
+Unclear corrections,25

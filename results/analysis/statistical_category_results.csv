@@ -1,0 +1,6 @@
+category,n,baseline_accuracy,alpha_2_accuracy,improved,degraded,net_change,p_value,significant_at_0.05
+adversarial,30,66.66666666666666,80.0,4,0,4,0.125,False
+ambiguous,30,40.0,73.33333333333333,11,1,10,0.00634765625,True
+false_premise,30,0.0,6.666666666666667,2,0,2,0.5,False
+future_prediction,30,46.666666666666664,80.0,10,0,10,0.001953125,True
+unanswerable,30,10.0,60.0,15,0,15,6.103515625e-05,True

@@ -1,0 +1,11 @@
+torch
+transformers
+transformer-lens
+numpy
+pandas
+matplotlib
+seaborn
+pyyaml
+tqdm
+scikit-learn
+python-dotenv

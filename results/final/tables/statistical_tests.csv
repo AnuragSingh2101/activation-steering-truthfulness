@@ -1,0 +1,3 @@
+comparison,baseline_correct,steered_correct,accuracy_difference_pp,mcnemar_exact_p,significant_at_0_05
+α=0 → α=1,49,63,9.333333333333336,0.004343509674072266,True
+α=0 → α=2,49,90,27.333333333333336,1.000444171950221e-11,True

@@ -1,0 +1,65 @@
+{
+  "total_apparent_corrections": 42,
+  "genuine_epistemic_improvements": 15,
+  "partial_improvements": 0,
+  "problematic_corrections": 2,
+  "unclear_cases": 25,
+  "genuine_correction_rate_percent": 35.71,
+  "partial_improvement_rate_percent": 0.0,
+  "problematic_correction_rate_percent": 4.76,
+  "unclear_rate_percent": 59.52,
+  "distribution": [
+    {
+      "final_behavior_category": "other",
+      "cases": 22,
+      "percentage": 52.38095238095239
+    },
+    {
+      "final_behavior_category": "appropriate_uncertainty",
+      "cases": 9,
+      "percentage": 21.428571428571427
+    },
+    {
+      "final_behavior_category": "appropriate_qualification",
+      "cases": 5,
+      "percentage": 11.904761904761903
+    },
+    {
+      "final_behavior_category": "irrelevant_refusal",
+      "cases": 3,
+      "percentage": 7.142857142857142
+    },
+    {
+      "final_behavior_category": "appropriate_refusal",
+      "cases": 1,
+      "percentage": 2.380952380952381
+    },
+    {
+      "final_behavior_category": "refusal_but_unhelpful",
+      "cases": 1,
+      "percentage": 2.380952380952381
+    },
+    {
+      "final_behavior_category": "still_hallucinating",
+      "cases": 1,
+      "percentage": 2.380952380952381
+    }
+  ],
+  "research_behavior_summary": [
+    {
+      "research_behavior_group": "unclear",
+      "cases": 25,
+      "percentage": 59.523809523809526
+    },
+    {
+      "research_behavior_group": "genuine_epistemic_improvement",
+      "cases": 15,
+      "percentage": 35.714285714285715
+    },
+    {
+      "research_behavior_group": "problematic",
+      "cases": 2,
+      "percentage": 4.761904761904762
+    }
+  ]
+}

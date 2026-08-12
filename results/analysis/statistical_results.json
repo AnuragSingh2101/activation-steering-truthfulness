@@ -1,0 +1,88 @@
+{
+  "n_questions": 150,
+  "mcnemar": {
+    "alpha_0_vs_alpha_1": {
+      "baseline_correct_steered_wrong": 4,
+      "baseline_wrong_steered_correct": 18,
+      "discordant_pairs": 22,
+      "p_value": 0.004343509674072266,
+      "significant_at_0.05": true
+    },
+    "alpha_0_vs_alpha_2": {
+      "baseline_correct_steered_wrong": 1,
+      "baseline_wrong_steered_correct": 42,
+      "discordant_pairs": 43,
+      "p_value": 1.000444171950221e-11,
+      "significant_at_0.05": true
+    }
+  },
+  "bootstrap": {
+    "alpha_0_vs_alpha_1": {
+      "observed_difference": 0.09333333333333334,
+      "ci_lower": 0.03333333333333333,
+      "ci_upper": 0.15333333333333332
+    },
+    "alpha_0_vs_alpha_2": {
+      "observed_difference": 0.2733333333333333,
+      "ci_lower": 0.2,
+      "ci_upper": 0.3466666666666667
+    }
+  },
+  "category_results": [
+    {
+      "category": "adversarial",
+      "n": 30,
+      "baseline_accuracy": 66.66666666666666,
+      "alpha_2_accuracy": 80.0,
+      "improved": 4,
+      "degraded": 0,
+      "net_change": 4,
+      "p_value": 0.125,
+      "significant_at_0.05": false
+    },
+    {
+      "category": "ambiguous",
+      "n": 30,
+      "baseline_accuracy": 40.0,
+      "alpha_2_accuracy": 73.33333333333333,
+      "improved": 11,
+      "degraded": 1,
+      "net_change": 10,
+      "p_value": 0.00634765625,
+      "significant_at_0.05": true
+    },
+    {
+      "category": "false_premise",
+      "n": 30,
+      "baseline_accuracy": 0.0,
+      "alpha_2_accuracy": 6.666666666666667,
+      "improved": 2,
+      "degraded": 0,
+      "net_change": 2,
+      "p_value": 0.5,
+      "significant_at_0.05": false
+    },
+    {
+      "category": "future_prediction",
+      "n": 30,
+      "baseline_accuracy": 46.666666666666664,
+      "alpha_2_accuracy": 80.0,
+      "improved": 10,
+      "degraded": 0,
+      "net_change": 10,
+      "p_value": 0.001953125,
+      "significant_at_0.05": true
+    },
+    {
+      "category": "unanswerable",
+      "n": 30,
+      "baseline_accuracy": 10.0,
+      "alpha_2_accuracy": 60.0,
+      "improved": 15,
+      "degraded": 0,
+      "net_change": 15,
+      "p_value": 6.103515625e-05,
+      "significant_at_0.05": true
+    }
+  ]
+}

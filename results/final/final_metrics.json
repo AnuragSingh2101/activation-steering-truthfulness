@@ -1,0 +1,50 @@
+{
+  "experiment": {
+    "total_questions": 150,
+    "datasets": 3,
+    "conditions": 3,
+    "total_evaluated_responses": 450
+  },
+  "accuracy": {
+    "alpha_0": {
+      "correct": 49,
+      "total": 150,
+      "accuracy_percent": 32.67
+    },
+    "alpha_1": {
+      "correct": 63,
+      "total": 150,
+      "accuracy_percent": 42.0,
+      "improvement_vs_baseline_pp": 9.33
+    },
+    "alpha_2": {
+      "correct": 90,
+      "total": 150,
+      "accuracy_percent": 60.0,
+      "improvement_vs_baseline_pp": 27.33
+    }
+  },
+  "statistical_significance": {
+    "alpha_0_vs_alpha_1": {
+      "mcnemar_exact_p": 0.004343509674072266,
+      "significant_at_0_05": true
+    },
+    "alpha_0_vs_alpha_2": {
+      "mcnemar_exact_p": 1.000444171950221e-11,
+      "significant_at_0_05": true
+    }
+  },
+  "qualitative_audit": {
+    "apparent_corrections": 42,
+    "genuine_epistemic_improvements": 15,
+    "problematic_corrections": 2,
+    "unclear_corrections": 25,
+    "genuine_correction_rate_percent": 35.71
+  },
+  "interpretation": {
+    "primary_result": "Activation steering increased benchmark truthfulness accuracy from 32.67% at \u03b1=0 to 60.00% at \u03b1=2.",
+    "main_caveat": "Qualitative auditing verified 15 of 42 apparent \u03b1=2 corrections as clear epistemic improvements, while 25 remained unclear and 2 were problematic.",
+    "strongest_categories": "The largest \u03b1=2 accuracy improvements occurred for unanswerable, ambiguous, and future-prediction questions.",
+    "limitation": "Binary benchmark scoring can overestimate behavioral truthfulness when a response avoids a false claim through an irrelevant or low-quality refusal."
+  }
+}

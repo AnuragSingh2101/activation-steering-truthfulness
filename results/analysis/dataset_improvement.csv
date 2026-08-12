@@ -1,0 +1,4 @@
+dataset,questions,alpha_0_accuracy,alpha_1_accuracy,alpha_2_accuracy,alpha_1_delta,alpha_2_delta
+A,50,34.0,38.0,60.0,4.0,26.0
+B,50,28.000000000000004,48.0,66.0,19.999999999999996,38.0
+C,50,36.0,40.0,54.0,4.0,18.0

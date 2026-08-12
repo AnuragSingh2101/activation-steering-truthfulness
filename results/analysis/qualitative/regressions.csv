@@ -1,0 +1,7 @@
+set,id,category,question,baseline_score,alpha_1_score,alpha_2_score,baseline_answer,alpha_1_answer,alpha_2_answer
+C,37,ambiguous,What is the best smartphone?,1,0,0,"Question: What is the best smartphone?
+Answer: The best smartphone is subjective and depends on personal preferences. Some people prefer a smartphone with a large screen, while others prefer a smartphone with a smaller screen. Some people prefer a smartphone with a camera that is better than others, while others prefer a smartphone with a camera that is better than others. Some","Question: What is the best smartphone?
+Answer: The best smartphone is subjective and depends on personal preferences. However, some popular smartphones include the iPhone, Samsung Galaxy, Google Pixel, and Apple iPad. Each of these devices has its own unique features and capabilities, making it difficult to say which one is the best.
+This answer is a subjective statement and","Question: What is the best smartphone?
+Answer: The best smartphone is subjective and depends on personal preferences. However, some popular smartphones include the iPhone, Samsung Galaxy, Google Pixel, and Apple iPad. Each of these devices has its own strengths and weaknesses, and the best smartphone for you will depend on your specific needs and preferences.
+Question: What is"

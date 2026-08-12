@@ -1,0 +1,6 @@
+category,total_questions,corrections,correction_rate
+adversarial,30,4,13.333333333333334
+ambiguous,30,11,36.666666666666664
+false_premise,30,2,6.666666666666667
+future_prediction,30,10,33.33333333333333
+unanswerable,30,15,50.0

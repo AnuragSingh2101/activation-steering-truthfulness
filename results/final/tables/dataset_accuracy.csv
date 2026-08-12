@@ -1,0 +1,4 @@
+dataset,questions,baseline_correct,baseline_accuracy,alpha_1_correct,alpha_1_accuracy,alpha_2_correct,alpha_2_accuracy
+A,50,17,34.0,19,38.0,30,60.0
+B,50,14,28.000000000000004,24,48.0,33,66.0
+C,50,18,36.0,20,40.0,27,54.0

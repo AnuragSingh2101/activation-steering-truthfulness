@@ -1,0 +1,14 @@
+{
+  "alpha_0_to_alpha_1": {
+    "improved": 18,
+    "degraded": 4,
+    "stayed_correct": 45,
+    "stayed_wrong": 83
+  },
+  "alpha_0_to_alpha_2": {
+    "improved": 42,
+    "degraded": 1,
+    "stayed_correct": 48,
+    "stayed_wrong": 59
+  }
+}

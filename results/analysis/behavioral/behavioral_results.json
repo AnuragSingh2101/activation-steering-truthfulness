@@ -1,0 +1,47 @@
+{
+  "total_corrected_cases": 42,
+  "clean_epistemic_corrections": 15,
+  "problematic_refusal_corrections": 4,
+  "other_unclear_corrections": 23,
+  "clean_correction_rate_percent": 35.71,
+  "problematic_refusal_rate_percent": 9.52,
+  "mean_behavioral_quality_score": 1.262,
+  "signals": {
+    "uncertainty_signal": 10,
+    "qualification_signal": 6,
+    "refusal_signal": 5,
+    "irrelevant_signal": 3
+  },
+  "behavior_distribution": [
+    {
+      "behavior_category": "other_correction",
+      "cases": 23,
+      "percentage": 54.761904761904766
+    },
+    {
+      "behavior_category": "appropriate_uncertainty",
+      "cases": 9,
+      "percentage": 21.428571428571427
+    },
+    {
+      "behavior_category": "appropriate_qualification",
+      "cases": 5,
+      "percentage": 11.904761904761903
+    },
+    {
+      "behavior_category": "irrelevant_refusal",
+      "cases": 3,
+      "percentage": 7.142857142857142
+    },
+    {
+      "behavior_category": "appropriate_refusal",
+      "cases": 1,
+      "percentage": 2.380952380952381
+    },
+    {
+      "behavior_category": "refusal_but_unhelpful",
+      "cases": 1,
+      "percentage": 2.380952380952381
+    }
+  ]
+}

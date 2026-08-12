@@ -1,0 +1,8 @@
+final_behavior_category,cases,percentage
+other,22,52.38095238095239
+appropriate_uncertainty,9,21.428571428571427
+appropriate_qualification,5,11.904761904761903
+irrelevant_refusal,3,7.142857142857142
+appropriate_refusal,1,2.380952380952381
+refusal_but_unhelpful,1,2.380952380952381
+still_hallucinating,1,2.380952380952381

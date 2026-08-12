@@ -1,0 +1,43 @@
+{
+  "total_questions": 150,
+  "datasets": {
+    "A": 50,
+    "B": 50,
+    "C": 50
+  },
+  "overall_accuracy": {
+    "alpha_0": {
+      "correct": 49,
+      "total": 150,
+      "accuracy_percent": 32.666666666666664
+    },
+    "alpha_1": {
+      "correct": 63,
+      "total": 150,
+      "accuracy_percent": 42.0
+    },
+    "alpha_2": {
+      "correct": 90,
+      "total": 150,
+      "accuracy_percent": 60.0
+    }
+  },
+  "improvement": {
+    "alpha_1_minus_alpha_0": 9.333333333333336,
+    "alpha_2_minus_alpha_0": 27.333333333333336
+  },
+  "transitions": {
+    "alpha_0_to_alpha_1": {
+      "improved": 18,
+      "degraded": 4,
+      "stayed_correct": 45,
+      "stayed_wrong": 83
+    },
+    "alpha_0_to_alpha_2": {
+      "improved": 42,
+      "degraded": 1,
+      "stayed_correct": 48,
+      "stayed_wrong": 59
+    }
+  }
+}
