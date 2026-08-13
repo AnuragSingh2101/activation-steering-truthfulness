@@ -7,7 +7,19 @@ import sys
 # Configuration
 # ============================================================
 
-SET_NAME = "C"
+if len(sys.argv) != 2:
+    print(
+        "Usage:\n"
+        "  python scripts/10_score_robustness.py B\n"
+        "  python scripts/10_score_robustness.py C"
+    )
+    sys.exit(1)
+
+SET_NAME = sys.argv[1].upper()
+
+if SET_NAME not in ["B", "C"]:
+    print("Error: Dataset must be B or C.")
+    sys.exit(1)
 
 INPUT_PATH = (
     f"results/raw/robustness/set_{SET_NAME}_outputs.json"
@@ -16,6 +28,7 @@ INPUT_PATH = (
 OUTPUT_PATH = (
     f"results/raw/robustness/set_{SET_NAME}_scores.json"
 )
+
 
 
 # ============================================================

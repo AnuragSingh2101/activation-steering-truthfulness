@@ -689,33 +689,107 @@ Final Qualitative Audit
 Final Results Package
 ```
 
-The major analysis scripts are:
+The major pipeline scripts are:
 
 ```text
 scripts/
-├── 09_analyze_results.py
-├── 10_statistical_analysis.py
-├── 11_qualitative_analysis.py
-├── 12_behavioral_analysis.py
-├── 13_final_qualitative_audit.py
-└── 14_final_results.py
+├── 01_check_environment.py
+├── 02_test_model.py
+├── 03_test_dataset.py
+├── 04_build_steering_vector.py
+├── 05_check_vector.py
+├── 06_test_steering.py
+├── 07_generate_truthfulness.py
+├── 08_score_truthfulness.py
+├── 09_generate_robustness.py
+├── 10_score_robustness.py
+├── 11_analyze_results.py
+├── 12_statistical_analysis.py
+├── 13_qualitative_analysis.py
+├── 14_behavioral_analysis.py
+├── 15_final_qualitative_audit.py
+└── 16_final_results.py
 ```
 
 ---
 
 # Reproducibility
 
-The final analysis can be reproduced using the project's Python environment.
+The final analysis can be reproduced using the project's Python environment and the saved results.
 
-After the raw outputs and scores have been generated, run:
+## Setup and Verification
+
+To set up the environment, configure keys, and verify model loading and dataset availability, run:
 
 ```bash
-python scripts/09_analyze_results.py
-python scripts/10_statistical_analysis.py
-python scripts/11_qualitative_analysis.py
-python scripts/12_behavioral_analysis.py
-python scripts/13_final_qualitative_audit.py
-python scripts/14_final_results.py
+# 1. Verify environment libraries and GPU/CUDA setup
+python scripts/01_check_environment.py
+
+# 2. Verify baseline model loading and basic inference
+python scripts/02_test_model.py
+
+# 3. Verify contrastive training dataset properties
+python scripts/03_test_dataset.py
+```
+
+## Vector Construction and Testing
+
+To construct and inspect the steering vectors, run:
+
+```bash
+# 4. Extract directions and build the normalized truthfulness vector
+python scripts/04_build_steering_vector.py
+
+# 5. Check average and pairwise cosine similarity statistics on the vector
+python scripts/05_check_vector.py
+
+# 6. Test activation steering on a sample query (baseline vs steered)
+python scripts/06_test_steering.py
+```
+
+## Model Output Generation and Scoring
+
+> [!WARNING]
+> Rerunning these scripts is not required to reproduce the paper's final analysis. To avoid overwriting the existing final experimental results, verify target paths or backups before execution.
+
+```bash
+# 7. Generate baseline and steered responses for Set A
+python scripts/07_generate_truthfulness.py
+
+# 8. Manually score Set A generated responses (interactive CLI)
+python scripts/08_score_truthfulness.py
+
+# 9. Generate baseline and steered responses for Sets B and C
+python scripts/09_generate_robustness.py B
+python scripts/09_generate_robustness.py C
+
+# 10. Manually score Sets B and C generated responses (interactive CLI)
+python scripts/10_score_robustness.py B
+python scripts/10_score_robustness.py C
+```
+
+## Reproduction of Final Analysis
+
+To run the main analysis pipeline and regenerate all tables, plots, statistical tests, and qualitative audit CSVs from the existing scores, run:
+
+```bash
+# 11. Compute quantitative accuracies, deltas, and basic plots
+python scripts/11_analyze_results.py
+
+# 12. Run McNemar exact tests and bootstrap confidence intervals
+python scripts/12_statistical_analysis.py
+
+# 13. Extract corrections, regressions, and persistent failures
+python scripts/13_qualitative_analysis.py
+
+# 14. Run rule-based behavioral audits on corrected answers
+python scripts/14_behavioral_analysis.py
+
+# 15. Perform final qualitative audit on unclear cases
+python scripts/15_final_qualitative_audit.py
+
+# 16. Generate the publication-ready tables and plots package
+python scripts/16_final_results.py
 ```
 
 The analysis outputs are written to:
@@ -773,13 +847,22 @@ activation-steering-truthfulness/
 ├── RESEARCH.md
 │
 ├── scripts/
-│   ├── ...
-│   ├── 09_analyze_results.py
-│   ├── 10_statistical_analysis.py
-│   ├── 11_qualitative_analysis.py
-│   ├── 12_behavioral_analysis.py
-│   ├── 13_final_qualitative_audit.py
-│   └── 14_final_results.py
+│   ├── 01_check_environment.py
+│   ├── 02_test_model.py
+│   ├── 03_test_dataset.py
+│   ├── 04_build_steering_vector.py
+│   ├── 05_check_vector.py
+│   ├── 06_test_steering.py
+│   ├── 07_generate_truthfulness.py
+│   ├── 08_score_truthfulness.py
+│   ├── 09_generate_robustness.py
+│   ├── 10_score_robustness.py
+│   ├── 11_analyze_results.py
+│   ├── 12_statistical_analysis.py
+│   ├── 13_qualitative_analysis.py
+│   ├── 14_behavioral_analysis.py
+│   ├── 15_final_qualitative_audit.py
+│   └── 16_final_results.py
 │
 ├── results/
 │   ├── raw/

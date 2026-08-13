@@ -352,16 +352,26 @@ Final Qualitative Audit
 Final Results Package
 ```
 
-The final analysis scripts include:
+The final pipeline scripts include:
 
 ```text
 scripts/
-├── 09_analyze_results.py
-├── 10_statistical_analysis.py
-├── 11_qualitative_analysis.py
-├── 12_behavioral_analysis.py
-├── 13_final_qualitative_audit.py
-└── 14_final_results.py
+├── 01_check_environment.py
+├── 02_test_model.py
+├── 03_test_dataset.py
+├── 04_build_steering_vector.py
+├── 05_check_vector.py
+├── 06_test_steering.py
+├── 07_generate_truthfulness.py
+├── 08_score_truthfulness.py
+├── 09_generate_robustness.py
+├── 10_score_robustness.py
+├── 11_analyze_results.py
+├── 12_statistical_analysis.py
+├── 13_qualitative_analysis.py
+├── 14_behavioral_analysis.py
+├── 15_final_qualitative_audit.py
+└── 16_final_results.py
 ```
 
 ---
@@ -1186,17 +1196,17 @@ This could provide evidence about how steering changes internal representations.
 
 # 30. Reproducibility
 
-The repository contains the scripts used for final analysis.
+The repository contains the scripts used for environment setup, model and dataset verification, vector building, output generation, manual scoring, and final analysis.
 
-The primary analysis pipeline is:
+The primary analysis pipeline can be reproduced using:
 
 ```bash
-python scripts/09_analyze_results.py
-python scripts/10_statistical_analysis.py
-python scripts/11_qualitative_analysis.py
-python scripts/12_behavioral_analysis.py
-python scripts/13_final_qualitative_audit.py
-python scripts/14_final_results.py
+python scripts/11_analyze_results.py
+python scripts/12_statistical_analysis.py
+python scripts/13_qualitative_analysis.py
+python scripts/14_behavioral_analysis.py
+python scripts/15_final_qualitative_audit.py
+python scripts/16_final_results.py
 ```
 
 Raw outputs are stored under:

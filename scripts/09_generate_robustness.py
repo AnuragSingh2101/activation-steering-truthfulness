@@ -14,7 +14,9 @@ PROJECT_ROOT = os.path.dirname(
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 
+# pyrefly: ignore [missing-import]
 from src.model import load_model
+# pyrefly: ignore [missing-import]
 from src.steering import generate_baseline, generate_steered
 
 
@@ -74,8 +76,8 @@ def main():
 
         print(
             "Usage:\n"
-            "  python scripts\\07_generate_robustness.py B\n"
-            "  python scripts\\07_generate_robustness.py C"
+            "  python scripts/09_generate_robustness.py B\n"
+            "  python scripts/09_generate_robustness.py C"
         )
 
         sys.exit(1)
