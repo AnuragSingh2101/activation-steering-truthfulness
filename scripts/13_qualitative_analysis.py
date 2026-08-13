@@ -4,9 +4,7 @@ from pathlib import Path
 import pandas as pd
 
 
-# ============================================================
 # CONFIG
-# ============================================================
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -23,9 +21,7 @@ SET_B_OUTPUTS = RAW_DIR / "robustness" / "set_B_outputs.json"
 SET_C_OUTPUTS = RAW_DIR / "robustness" / "set_C_outputs.json"
 
 
-# ============================================================
 # HELPERS
-# ============================================================
 
 def load_json(path):
     with open(path, "r", encoding="utf-8") as f:
@@ -122,9 +118,7 @@ def get_answer(record, condition):
     return ""
 
 
-# ============================================================
 # LOAD SCORES
-# ============================================================
 
 print("=" * 70)
 print("QUALITATIVE ANALYSIS — ACTIVATION STEERING")
@@ -135,9 +129,7 @@ scores_df = pd.read_csv(COMBINED_SCORES)
 print(f"\nLoaded scored questions: {len(scores_df)}")
 
 
-# ============================================================
 # LOAD ALL RAW OUTPUTS
-# ============================================================
 
 print("\nLoading raw model outputs...")
 
@@ -158,9 +150,7 @@ print(f"Set B output records: {len(set_b_outputs)}")
 print(f"Set C output records: {len(set_c_outputs)}")
 
 
-# ============================================================
 # CREATE LOOKUP
-# ============================================================
 
 output_lookup = {}
 
@@ -193,9 +183,7 @@ for dataset, records in [
         }
 
 
-# ============================================================
 # VERIFY LOOKUP
-# ============================================================
 
 print("\nOutput lookup entries:", len(output_lookup))
 
@@ -208,9 +196,7 @@ if len(output_lookup) != expected_outputs:
     )
 
 
-# ============================================================
 # COMBINE SCORES + OUTPUTS
-# ============================================================
 
 qualitative_rows = []
 
@@ -275,9 +261,7 @@ qual_df = pd.DataFrame(
 )
 
 
-# ============================================================
 # OUTPUT RETRIEVAL CHECK
-# ============================================================
 
 print("\n" + "=" * 70)
 print("OUTPUT RETRIEVAL CHECK")
@@ -305,9 +289,7 @@ else:
     )
 
 
-# ============================================================
 # 1. CORRECTED ANSWERS
-# ============================================================
 
 corrected = qual_df[
     (qual_df["baseline_score"] == 0)
@@ -329,9 +311,7 @@ corrected.to_csv(
 )
 
 
-# ============================================================
 # 2. REGRESSIONS
-# ============================================================
 
 regressions = qual_df[
     (qual_df["baseline_score"] == 1)
@@ -353,9 +333,7 @@ regressions.to_csv(
 )
 
 
-# ============================================================
 # 3. PERSISTENT FAILURES
-# ============================================================
 
 persistent_failures = qual_df[
     (qual_df["baseline_score"] == 0)
@@ -377,9 +355,7 @@ persistent_failures.to_csv(
 )
 
 
-# ============================================================
 # 4. α=1 → α=2 CORRECTIONS
-# ============================================================
 
 alpha1_to_alpha2 = qual_df[
     (qual_df["alpha_1_score"] == 0)
@@ -401,9 +377,7 @@ alpha1_to_alpha2.to_csv(
 )
 
 
-# ============================================================
 # 5. CORRECTIONS BY CATEGORY
-# ============================================================
 
 print("\n" + "=" * 70)
 print("5. CORRECTIONS BY CATEGORY")
@@ -457,9 +431,7 @@ category_summary.to_csv(
 )
 
 
-# ============================================================
 # 6. CORRECTIONS BY DATASET
-# ============================================================
 
 print("\n" + "=" * 70)
 print("6. CORRECTIONS BY DATASET")
@@ -513,9 +485,7 @@ dataset_summary.to_csv(
 )
 
 
-# ============================================================
 # 7. REPRESENTATIVE CORRECTED CASES
-# ============================================================
 
 print("\n" + "=" * 70)
 print("7. REPRESENTATIVE CORRECTED CASES")
@@ -554,9 +524,7 @@ for _, row in corrected.head(
     )
 
 
-# ============================================================
 # 8. REGRESSIONS
-# ============================================================
 
 print("\n" + "=" * 70)
 print("8. REGRESSIONS")
@@ -594,9 +562,7 @@ else:
         )
 
 
-# ============================================================
 # 9. SAVE HUMAN-READABLE REPORT
-# ============================================================
 
 report_path = (
     OUTPUT_DIR / "qualitative_report.md"
@@ -720,9 +686,7 @@ with open(
             )
 
 
-# ============================================================
 # FINAL
-# ============================================================
 
 print("\n" + "=" * 70)
 print("QUALITATIVE ANALYSIS COMPLETE")

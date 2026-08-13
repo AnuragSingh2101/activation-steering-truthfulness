@@ -7,9 +7,7 @@ from scipy.stats import chi2
 from scipy.stats import binomtest
 
 
-# ============================================================
 # CONFIG
-# ============================================================
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -19,9 +17,7 @@ OUTPUT_DIR = ROOT / "results" / "analysis"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 
-# ============================================================
 # LOAD DATA
-# ============================================================
 
 print("=" * 70)
 print("STATISTICAL ANALYSIS — ACTIVATION STEERING")
@@ -38,9 +34,7 @@ for col in required:
         raise ValueError(f"Missing required column: {col}")
 
 
-# ============================================================
 # MCNEMAR'S TEST
-# ============================================================
 
 def mcnemar_test(before, after):
     """
@@ -81,9 +75,7 @@ def mcnemar_test(before, after):
     }
 
 
-# ============================================================
 # RUN TESTS
-# ============================================================
 
 print("\n" + "=" * 70)
 print("1. MCNEMAR TESTS")
@@ -127,9 +119,7 @@ for comparison, result in results.items():
     )
 
 
-# ============================================================
 # EFFECT SIZE
-# ============================================================
 
 print("\n" + "=" * 70)
 print("2. PAIRED IMPROVEMENT")
@@ -160,9 +150,7 @@ for condition in ["alpha_1", "alpha_2"]:
     print(f"Net change:       {net_change:+d}")
 
 
-# ============================================================
 # BOOTSTRAP CONFIDENCE INTERVAL
-# ============================================================
 
 print("\n" + "=" * 70)
 print("3. BOOTSTRAP CONFIDENCE INTERVALS")
@@ -236,9 +224,7 @@ for name, result in [
     )
 
 
-# ============================================================
 # CATEGORY-LEVEL MCNEMAR TESTS
-# ============================================================
 
 print("\n" + "=" * 70)
 print("4. CATEGORY-LEVEL α=2 TESTS")
@@ -299,9 +285,7 @@ category_df.to_csv(
 )
 
 
-# ============================================================
 # SAVE RESULTS
-# ============================================================
 
 final_results = {
     "n_questions": total,
@@ -323,9 +307,7 @@ with open(output_path, "w", encoding="utf-8") as f:
     )
 
 
-# ============================================================
 # FINAL SUMMARY
-# ============================================================
 
 print("\n" + "=" * 70)
 print("STATISTICAL ANALYSIS COMPLETE")

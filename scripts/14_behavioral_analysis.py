@@ -5,9 +5,7 @@ from pathlib import Path
 import pandas as pd
 
 
-# ============================================================
 # CONFIG
-# ============================================================
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -21,9 +19,7 @@ REGRESSIONS_FILE = QUAL_DIR / "regressions.csv"
 PERSISTENT_FILE = QUAL_DIR / "persistent_failures.csv"
 
 
-# ============================================================
 # BEHAVIORAL SIGNALS
-# ============================================================
 
 UNCERTAINTY_PATTERNS = [
     r"\bunknown\b",
@@ -99,9 +95,7 @@ HALLUCINATION_PATTERNS = [
 ]
 
 
-# ============================================================
 # HELPERS
-# ============================================================
 
 def normalize(text):
     if pd.isna(text):
@@ -178,9 +172,7 @@ def classify_behavior(row):
         IRRELEVANT_PATTERNS,
     )
 
-    # --------------------------------------------------------
     # Highest-priority problematic behavior
-    # --------------------------------------------------------
 
     if political_refusal and irrelevant:
         return (
@@ -201,9 +193,7 @@ def classify_behavior(row):
             "Refusal contains unrelated/off-topic content",
         )
 
-    # --------------------------------------------------------
     # Clean epistemic behavior
-    # --------------------------------------------------------
 
     if uncertainty and not refusal:
         return (
@@ -230,9 +220,7 @@ def classify_behavior(row):
             "Refuses to answer without a clear epistemic explanation",
         )
 
-    # --------------------------------------------------------
     # Remaining cases
-    # --------------------------------------------------------
 
     if len(alpha2) < 30:
         return (
@@ -277,9 +265,7 @@ def score_behavior(category):
     return 1
 
 
-# ============================================================
 # LOAD DATA
-# ============================================================
 
 print("=" * 70)
 print("BEHAVIORAL ANALYSIS — ACTIVATION STEERING")
@@ -313,9 +299,7 @@ print(
 )
 
 
-# ============================================================
 # CLASSIFY CORRECTED CASES
-# ============================================================
 
 print("\nClassifying corrected cases...")
 
@@ -365,9 +349,7 @@ behavior_df = pd.DataFrame(
 )
 
 
-# ============================================================
 # SAVE CASE-LEVEL RESULTS
-# ============================================================
 
 case_file = (
     OUTPUT_DIR /
@@ -380,9 +362,7 @@ behavior_df.to_csv(
 )
 
 
-# ============================================================
 # BEHAVIOR DISTRIBUTION
-# ============================================================
 
 print("\n" + "=" * 70)
 print("1. BEHAVIORAL CLASSIFICATION")
@@ -421,9 +401,7 @@ behavior_summary.to_csv(
 )
 
 
-# ============================================================
 # BEHAVIOR BY CATEGORY
-# ============================================================
 
 print("\n" + "=" * 70)
 print("2. BEHAVIOR BY BENCHMARK CATEGORY")
@@ -444,9 +422,7 @@ behavior_by_category.to_csv(
 )
 
 
-# ============================================================
 # BEHAVIOR SCORE
-# ============================================================
 
 print("\n" + "=" * 70)
 print("3. SECONDARY BEHAVIOR SCORE")
@@ -490,9 +466,7 @@ score_distribution.to_csv(
 )
 
 
-# ============================================================
 # CLEAN VS PROBLEMATIC CORRECTIONS
-# ============================================================
 
 clean_categories = [
     "appropriate_uncertainty",
@@ -560,9 +534,7 @@ print(
 )
 
 
-# ============================================================
 # SIGNAL ANALYSIS
-# ============================================================
 
 print("\n" + "=" * 70)
 print("5. RESPONSE SIGNALS")
@@ -592,9 +564,7 @@ for key, value in signal_results.items():
     )
 
 
-# ============================================================
 # SHOW CLEAN EXAMPLES
-# ============================================================
 
 print("\n" + "=" * 70)
 print("6. CLEAN EPISTEMIC CORRECTIONS")
@@ -637,9 +607,7 @@ for _, row in clean_examples.iterrows():
     )
 
 
-# ============================================================
 # SHOW PROBLEMATIC EXAMPLES
-# ============================================================
 
 print("\n" + "=" * 70)
 print("7. PROBLEMATIC / IRRELEVANT REFUSALS")
@@ -690,9 +658,7 @@ else:
         )
 
 
-# ============================================================
 # REGRESSION ANALYSIS
-# ============================================================
 
 print("\n" + "=" * 70)
 print("8. REGRESSION AUDIT")
@@ -730,9 +696,7 @@ else:
         )
 
 
-# ============================================================
 # PERSISTENT FAILURE SUMMARY
-# ============================================================
 
 print("\n" + "=" * 70)
 print("9. PERSISTENT FAILURES")
@@ -760,9 +724,7 @@ persistent_summary.to_csv(
 )
 
 
-# ============================================================
 # SAVE JSON SUMMARY
-# ============================================================
 
 final_results = {
     "total_corrected_cases": int(
@@ -825,9 +787,7 @@ with open(
     )
 
 
-# ============================================================
 # FINAL
-# ============================================================
 
 print("\n" + "=" * 70)
 print("BEHAVIORAL ANALYSIS COMPLETE")

@@ -66,9 +66,7 @@ def generate_steered(
         f"blocks.{layer}.hook_resid_post"
     )
 
-    # --------------------------------------------------------
     # Prepare vector ONCE before generation.
-    # --------------------------------------------------------
 
     vector = truthfulness_vector.to(
         device=model.cfg.device,

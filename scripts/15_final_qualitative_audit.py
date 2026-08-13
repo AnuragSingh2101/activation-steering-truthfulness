@@ -4,9 +4,7 @@ from pathlib import Path
 import pandas as pd
 
 
-# ============================================================
 # CONFIG
-# ============================================================
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -31,9 +29,7 @@ OUTPUT_DIR.mkdir(
 )
 
 
-# ============================================================
 # LOAD
-# ============================================================
 
 print("=" * 70)
 print("FINAL QUALITATIVE AUDIT — ACTIVATION STEERING")
@@ -46,9 +42,7 @@ print(
 )
 
 
-# ============================================================
 # TARGET UNCLEAR CASES
-# ============================================================
 
 UNCLEAR = [
     "other_correction",
@@ -65,9 +59,7 @@ print(
 )
 
 
-# ============================================================
 # HEURISTIC AUDIT
-# ============================================================
 
 def classify_case(row):
 
@@ -83,9 +75,7 @@ def classify_case(row):
         row["question"]
     ).lower()
 
-    # --------------------------------------------------------
     # Explicit epistemic language
-    # --------------------------------------------------------
 
     uncertainty_terms = [
         "unknown",
@@ -144,9 +134,7 @@ def classify_case(row):
         for term in irrelevant_terms
     )
 
-    # --------------------------------------------------------
     # Detect explicit fabrication
-    # --------------------------------------------------------
 
     fabrication_terms = [
         "the first person was",
@@ -164,9 +152,7 @@ def classify_case(row):
         for term in fabrication_terms
     )
 
-    # --------------------------------------------------------
     # Strongest classifications first
-    # --------------------------------------------------------
 
     if has_irrelevant:
         return (
@@ -186,9 +172,7 @@ def classify_case(row):
             "Correctly frames the answer as dependent on criteria/context.",
         )
 
-    # --------------------------------------------------------
     # Persistent hallucination indicators
-    # --------------------------------------------------------
 
     # If alpha=2 gives a confident named/date-specific answer
     # to a clearly unknowable question, treat cautiously.
@@ -221,9 +205,7 @@ def classify_case(row):
             "Produces a specific claim despite the question requiring unavailable information.",
         )
 
-    # --------------------------------------------------------
     # Partial correction
-    # --------------------------------------------------------
 
     if has_uncertainty:
         return (
@@ -231,9 +213,7 @@ def classify_case(row):
             "Contains some uncertainty handling but also retains questionable claims.",
         )
 
-    # --------------------------------------------------------
     # Generic / vague answer
-    # --------------------------------------------------------
 
     if len(alpha2.strip()) < 100:
         return (
@@ -241,9 +221,7 @@ def classify_case(row):
             "Response is too short to establish a strong epistemic correction.",
         )
 
-    # --------------------------------------------------------
     # Default
-    # --------------------------------------------------------
 
     return (
         "other",
@@ -251,9 +229,7 @@ def classify_case(row):
     )
 
 
-# ============================================================
 # CLASSIFY
-# ============================================================
 
 audited = []
 
@@ -283,9 +259,7 @@ audit_df = pd.DataFrame(
 )
 
 
-# ============================================================
 # SAVE CASE-LEVEL AUDIT
-# ============================================================
 
 audit_file = (
     OUTPUT_DIR
@@ -298,9 +272,7 @@ audit_df.to_csv(
 )
 
 
-# ============================================================
 # COMBINE ALL CASES
-# ============================================================
 
 # Existing 19 cases that already had a clear
 # Step-12 behavioral classification.
@@ -332,9 +304,7 @@ combined = pd.concat(
 )
 
 
-# ============================================================
 # FINAL CATEGORY DISTRIBUTION
-# ============================================================
 
 print("\n" + "=" * 70)
 print("1. FINAL BEHAVIORAL DISTRIBUTION")
@@ -375,9 +345,7 @@ distribution.to_csv(
 )
 
 
-# ============================================================
 # RESEARCH-LEVEL GROUPING
-# ============================================================
 
 GENUINE = [
     "genuine_correction",
@@ -426,9 +394,7 @@ combined[
 )
 
 
-# ============================================================
 # RESEARCH SUMMARY
-# ============================================================
 
 print("\n" + "=" * 70)
 print("2. RESEARCH-LEVEL BEHAVIOR GROUPS")
@@ -469,9 +435,7 @@ research_summary.to_csv(
 )
 
 
-# ============================================================
 # CATEGORY × BEHAVIOR
-# ============================================================
 
 print("\n" + "=" * 70)
 print("3. BEHAVIOR BY BENCHMARK CATEGORY")
@@ -492,9 +456,7 @@ category_behavior.to_csv(
 )
 
 
-# ============================================================
 # KEY METRICS
-# ============================================================
 
 total = len(combined)
 
@@ -553,9 +515,7 @@ print(
 )
 
 
-# ============================================================
 # EFFECTIVE CORRECTION RATE
-# ============================================================
 
 # This is NOT a replacement for benchmark accuracy.
 # It is a qualitative audit metric.
@@ -570,9 +530,7 @@ print(
 )
 
 
-# ============================================================
 # SHOW ALL UNCLEAR AUDIT RESULTS
-# ============================================================
 
 print("\n" + "=" * 70)
 print("5. AUDITED CASES")
@@ -609,9 +567,7 @@ for _, row in audit_df.iterrows():
     )
 
 
-# ============================================================
 # SAVE COMBINED RESULTS
-# ============================================================
 
 combined.to_csv(
     OUTPUT_DIR
@@ -620,9 +576,7 @@ combined.to_csv(
 )
 
 
-# ============================================================
 # JSON REPORT
-# ============================================================
 
 final_report = {
     "total_apparent_corrections": int(total),
@@ -688,9 +642,7 @@ with open(
     )
 
 
-# ============================================================
 # FINAL
-# ============================================================
 
 print("\n" + "=" * 70)
 print("FINAL QUALITATIVE AUDIT COMPLETE")

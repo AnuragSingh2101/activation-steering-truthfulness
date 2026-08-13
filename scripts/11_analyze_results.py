@@ -6,9 +6,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-# ============================================================
 # CONFIG
-# ============================================================
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -23,9 +21,7 @@ OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 PLOTS_DIR.mkdir(parents=True, exist_ok=True)
 
 
-# ============================================================
 # HELPERS
-# ============================================================
 
 def load_json(path):
     with open(path, "r", encoding="utf-8") as f:
@@ -167,9 +163,7 @@ def load_robustness_set(path, set_name):
     return normalized
 
 
-# ============================================================
 # LOAD DATA
-# ============================================================
 
 print("=" * 70)
 print("ACTIVATION STEERING — FINAL EXPERIMENT ANALYSIS")
@@ -201,9 +195,7 @@ if len(all_records) != 150:
     print("WARNING: Expected exactly 150 questions.")
 
 
-# ============================================================
 # DATAFRAME
-# ============================================================
 
 df = pd.DataFrame(all_records)
 
@@ -216,9 +208,7 @@ display_names = {
 }
 
 
-# ============================================================
 # 1. OVERALL ACCURACY
-# ============================================================
 
 print("\n" + "=" * 70)
 print("1. OVERALL ACCURACY")
@@ -271,9 +261,7 @@ if baseline_acc > 0:
     )
 
 
-# ============================================================
 # 2. DATASET ACCURACY
-# ============================================================
 
 print("\n" + "=" * 70)
 print("2. DATASET ACCURACY")
@@ -304,9 +292,7 @@ dataset_csv = OUTPUT_DIR / "dataset_results.csv"
 dataset_df.to_csv(dataset_csv, index=False)
 
 
-# ============================================================
 # 3. CATEGORY ACCURACY
-# ============================================================
 
 print("\n" + "=" * 70)
 print("3. CATEGORY ACCURACY")
@@ -337,9 +323,7 @@ category_csv = OUTPUT_DIR / "category_results.csv"
 category_df.to_csv(category_csv, index=False)
 
 
-# ============================================================
 # 4. QUESTION-LEVEL TRANSITIONS
-# ============================================================
 
 print("\n" + "=" * 70)
 print("4. QUESTION-LEVEL TRANSITIONS")
@@ -403,9 +387,7 @@ with open(transition_json, "w", encoding="utf-8") as f:
     )
 
 
-# ============================================================
 # 5. CATEGORY-LEVEL IMPROVEMENT
-# ============================================================
 
 print("\n" + "=" * 70)
 print("5. CATEGORY-LEVEL IMPROVEMENT")
@@ -440,9 +422,7 @@ category_improvement_df.to_csv(
 )
 
 
-# ============================================================
 # 6. DATASET-LEVEL IMPROVEMENT
-# ============================================================
 
 dataset_improvement_rows = []
 
@@ -470,9 +450,7 @@ dataset_improvement_df.to_csv(
 )
 
 
-# ============================================================
 # 7. MOST IMPROVED / MOST DEGRADED CATEGORIES
-# ============================================================
 
 print("\n" + "=" * 70)
 print("6. BEST / WORST CATEGORY CHANGES")
@@ -498,9 +476,7 @@ print(
 print("\n")
 
 
-# ============================================================
 # 8. OVERALL ACCURACY PLOT
-# ============================================================
 
 plt.figure(figsize=(8, 5))
 
@@ -529,9 +505,7 @@ plt.savefig(overall_plot, dpi=300)
 plt.close()
 
 
-# ============================================================
 # 9. DATASET PLOT
-# ============================================================
 
 plt.figure(figsize=(9, 5))
 
@@ -577,9 +551,7 @@ plt.savefig(dataset_plot, dpi=300)
 plt.close()
 
 
-# ============================================================
 # 10. CATEGORY PLOT
-# ============================================================
 
 category_plot_df = category_df.copy()
 
@@ -629,9 +601,7 @@ plt.savefig(category_plot, dpi=300)
 plt.close()
 
 
-# ============================================================
 # 11. FINAL SUMMARY JSON
-# ============================================================
 
 summary = {
     "total_questions": len(df),
@@ -673,9 +643,7 @@ with open(summary_path, "w", encoding="utf-8") as f:
     json.dump(summary, f, indent=2)
 
 
-# ============================================================
 # 12. SAVE COMBINED QUESTION-LEVEL DATA
-# ============================================================
 
 combined_path = OUTPUT_DIR / "combined_question_results.csv"
 
@@ -685,9 +653,7 @@ df.to_csv(
 )
 
 
-# ============================================================
 # FINAL OUTPUT
-# ============================================================
 
 print("\n" + "=" * 70)
 print("ANALYSIS COMPLETE")
